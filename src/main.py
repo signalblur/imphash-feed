@@ -27,13 +27,15 @@ def main():
     ]
 
     for tag in tags:
+        holder = []
         data = {'query':'get_taginfo', 'tag':tag, 'limit':50}
         res = requests.post(ABUSE_CH, data=data)
         #print(res.json().get('data'))
         for x in res.json().get('data'):
             if x.get('imphash') != None:
-                if x.get('imphash') != '':
-                    ioc_update(tag, x.get('imphash'))
+                    if x.get('imphash') not in holder:
+                        ioc_update(tag, x.get('imphash'))
+                        holder.append(x.get('imphash'))
 
 if __name__ == '__main__':
     main()
