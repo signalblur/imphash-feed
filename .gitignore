@@ -4,9 +4,7 @@ pyvenv.cfg
 lib/
 lib64/
 lib64
-src
-src/
-main.py
+src/main.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
